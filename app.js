@@ -33,6 +33,7 @@ app.post("/", (req, res) => {
       } else {
         const weatherData = {
           cod: weather.cod,
+          date: new Date(weather.dt*1000),
           location: weather.name,
           country: weather.sys.country,
           currentForecast: weather.weather[0].main,
@@ -40,8 +41,8 @@ app.post("/", (req, res) => {
           feelsLike: Math.round(weather.main.feels_like),
           tempMin: Math.round(weather.main.temp_min),
           tempMax: Math.round(weather.main.temp_max),
-          sunrise: weather.sys.sunrise,
-          sunset: weather.sys.sunset,
+          sunrise: new Date(weather.sys.sunrise * 1000),
+          sunset: new Date(weather.sys.sunset*1000),
           timezone: weather.timezone,
           pressure: weather.main.pressure,
           windspeed: weather.wind.speed,
