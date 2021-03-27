@@ -1,0 +1,14 @@
+<p><%= weather.name %></p>
+<p><%= weather.sys.country %></p>
+<p>It is currently <%= weather.weather[0].main %></p>
+<p>Current Temp of <%= Math.round(weather.main.temp) %></p>
+<p>Feels Like <%= Math.round(weather.main.feels_like) %> Degrees</p>
+<p>Min : <%= Math.round(weather.main.temp_min)%> Degrees</p>
+<p>Max: <%= Math.round(weather.main.temp_max) %> Degrees</p>
+<p>Sunrise: <%= weather.sys.sunrise %></p>
+<p>Sunset: <%= weather.sys.sunset %></p>
+<p>Timezone: <%= weather.timezone %></p>
+<p>Pressure <%= weather.main.pressure %> hPa</p>
+<p>Wind Speed <%= weather.wind.speed %> km/h</p>
+<p>Description <%= weather.weather[0].description %></p>
+<p>Humidity <%= weather.main.humidity %>%</p>
