@@ -16,8 +16,21 @@
     <% } else if(error !== null){ %>
         <p><%= error %></p>
     <% } else { %>
-        <p><%= (weatherData.cod) %></p>
- 
+        <div>
+          <p><%= weatherData.location %>, <%= weatherData.country %> </p>
+          <p><%= weatherData.currentTemp %>˚</p>
+          <p><%= weatherData.currentForecast%></p>
+          <p>Humidity: <%= weatherData.humidity %>%</p>
+          <p>Windspeed: <%= weatherData.windspeed %>km/h</p>
+          <p>Pressure: <%= weatherData.pressure %>hPa</p>
+          <p>Description: <%= weatherData.description %></p>
+        </div>
+        <div>
+          <p>Min Temp: <%= weatherData.tempMin %></p>
+          <p>Max Temp: <%= weatherData.tempMax %></p>
+          <p>Sunrise: <%= weatherData.sunrise %></p>
+          <p>Sunset: <%= weatherData.sunset %></p>
+        </div>
 
 
     <% } %>

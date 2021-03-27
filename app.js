@@ -48,7 +48,7 @@ app.post("/", (req, res) => {
           description: weather.weather[0].description,
           humidity: weather.main.humidity,
         };
-
+        console.log(weatherData)
         res.render("index", { weatherData: weatherData, city: cityName, error: null });
       }
     });
