@@ -4,23 +4,16 @@
   <div class="searchArea">
     <h2>Weather App</h2>
     <form class="searchInput" action="/" method="post">
-      <input
-        type="text"
-        name="location"
-        placeholder="City Here"
-        required="true"
-      /><br />
-      <input
-        type="radio"
-        id="cel"
-        name="units"
-        value="metric"
-        checked="checked"
-      />
-      <label for="cel">Celsius</label><br />
+      <div class="inline-row searchRequest">
+        <input class="searchBar" type="text" name="location" placeholder="City Here" required="true"/>
+        <button class="searchButton" type="submit" name="submit">Go</button>
+    </div> 
+      
+      <input type="radio" id="cel" name="units" value="metric" checked="checked" />
+      <label for="cel">Celsius</label>
       <input type="radio" id="far" name="units" value="imperial" />
-      <label for="far">Fahrenheit</label><br />
-      <button type="submit" name="submit">Search Weather</button>
+      <label for="far">Fahrenheit</label>
+     
     </form>
   </div>
   <div class="return">
@@ -28,53 +21,51 @@
     <p><%= error %></p>
     <% } else { %>
     <div class="dataArea">
-      
-        <p><%= weatherData.location %>, <%= weatherData.country %></p>
-        <p><%= weatherData.currentTemp %>˚</p>
-        <p><%= weatherData.currentForecast%></p>
-      
-     
+      <div class="inline-row">
+        <h2 class="left">
+          <%= weatherData.location %>, <%= weatherData.country %>
+        </h2>
+        <h1 class="right"><%= weatherData.currentTemp %>˚</h1>
+      </div>
+
+      <div class="inline-row">
+        <p class="left"><%= weatherData.currentForecast%></p>
+      </div>
+
       <div>
         <div class="inline-row">
-          <p class='left'>Humidity: </p>
-          <p class='right'><%= weatherData.humidity %>%</p>
+          <p >Humidity:</p>
+          <p ><%= weatherData.humidity %>%</p>
         </div>
-        <div>
-          
+        <div class="inline-row">
+          <p >Windspeed:</p>
+          <p ><%= weatherData.windspeed %>km/h</p>
         </div>
-      </div>   
-        <p>Windspeed: <%= weatherData.windspeed %>km/h</p>
-        <p>Pressure: <%= weatherData.pressure %>hPa</p>
-        <p>Description: <%= weatherData.description %></p>
-        <div>
-          <div>
-  
-          </div>
-          <div>
-            
-          </div>
-        </div> 
-        <div>
-          <div>
-  
-          </div>
-          <div>
-            
-          </div>
-        </div> 
-
-    </div>
-
-    <div class="dataArea">
-      
-        <p>Min Temp: <%= weatherData.tempMin %>˚</p>
-        <p>Max Temp: <%= weatherData.tempMax %>˚</p>
-      
-     
-        <p>Sunrise: <%= weatherData.sunrise %></p>
-        <p>Sunset: <%= weatherData.sunset %></p>
-      
-      
+        <div class="inline-row">
+          <p >Pressure:</p>
+          <p ><%= weatherData.pressure %>hPa</p>
+        </div>
+        <div class="inline-row">
+          <p >Description:</p>
+          <p ><%= weatherData.description %></p>
+        </div>
+        <div class="inline-row">
+          <p >Min Temp:</p>
+          <p ><%= weatherData.tempMin %>˚</p>
+        </div>
+        <div class="inline-row">
+          <p >Max Temp:</p>
+          <p ><%= weatherData.tempMax %>˚</p>
+        </div>
+        <div class="inline-row">
+          <p >Sunrise:</p>
+          <p ><%= weatherData.sunrise %></p>
+        </div>
+        <div class="inline-row">
+          <p >Sunset:</p>
+          <p ><%= weatherData.sunset %></p>
+        </div>
+      </div>
     </div>
 
     <% } %>
@@ -82,5 +73,4 @@
   <div class="bottom">
     <footer><%- include('footer.ejs') -%></footer>
   </div>
-  
 </div>

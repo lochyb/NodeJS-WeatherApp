@@ -1,61 +1,69 @@
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-family: "Nunito", sans-serif;
 }
 
-.container{
-    display: grid;
-    align-content: center;
-    text-align: center;
-    grid-template-rows: auto 1fr 0.2fr;
+.container {
+  display: grid;
+  align-content: center;
+  text-align: center;
+  grid-template-rows: auto 1fr 0.2fr;
 }
 
-.searchArea{
-background-color: gray;
-padding: 2rem;
+.searchArea {
+  background-color: gray;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+}
+
+.searchBar {
+  padding: 8px 15px;
+  background: rgba(235, 230, 230, 0.7);
+  border: 1px solid black;
+  border-right: none;
+}
+.searchButton {
+  background: rgba(235, 230, 230, 0.2);
+  border: 1px solid black;
+  cursor: pointer;
+  height: 2rem;
+}
+
+.searchInput {
+  padding: 1rem;
 
 }
 
-.searchInput{
-    padding: 1rem;
+.dataArea {
+  display: grid;
+  grid-template-columns: minmax(20ch, 40ch);
+  justify-content: space-around;
+  margin: auto 3rem;
+  background-color: rgba(235, 230, 230, 0.6);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
-
-.dataArea{
-    display: grid;
-    grid-template-columns: minmax(20ch, 40ch);
-    justify-content: space-around;
-    grid-gap: 2rem;
-    /* width:70%; */
-    margin: auto 6rem;
-
-
+.inline-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-.inline-row{
-    position: relative;
-    display: flex;
-    width: minmax;
-
-}
-.left{
-    text-align: left;
-    
+.searchRequest {
+  justify-content: center;
 }
 
-.right{
-    text-align: right;
-    position: absolute;
-    right:0;
+h2 {
+  margin-bottom: 0;
 }
-
-
-
-footer{
-    background-color: gray;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
+footer {
+  background-color: gray;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
-
