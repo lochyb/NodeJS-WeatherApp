@@ -1,76 +1,28 @@
-<%- include('header.ejs') -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('header.ejs') -%>
+</head>
 
-<div class="container">
-  <div class="searchArea">
-    <h2>Weather App</h2>
-    <form class="searchInput" action="/" method="post">
-      <div class="inline-row searchRequest">
-        <input class="searchBar" type="text" name="location" placeholder="City Here" required="true"/>
-        <button class="searchButton" type="submit" name="submit">Go</button>
-    </div> 
-      
-      <input type="radio" id="cel" name="units" value="metric" checked="checked" />
-      <label for="cel">Celsius</label>
-      <input type="radio" id="far" name="units" value="imperial" />
-      <label for="far">Fahrenheit</label>
-     
-    </form>
-  </div>
-  <div class="return">
-    <% if (weatherData === null) { %> <% } else if(error !== null){ %>
-    <p><%= error %></p>
-    <% } else { %>
-    <div class="dataArea">
-      <div class="inline-row">
-        <h2 class="left">
-          <%= weatherData.location %>, <%= weatherData.country %>
-        </h2>
-        <h1 class="right"><%= weatherData.currentTemp %>˚</h1>
+<body>
+  <div class="container">
+    <%- include('search.ejs') -%>
+      <div class="return">
+        <% if (weatherData===null) { %>
+          <% } else if(error !==null){ %>
+            <p>
+              <%= error %>
+            </p>
+            <% } else { %>
+              <%- include('weatherCard.ejs') -%>
+                <% } %>
       </div>
+      <div class="bottom">
 
-      <div class="inline-row">
-        <p class="left"><%= weatherData.currentForecast%></p>
+        <%- include('footer.ejs') -%>
       </div>
-
-      <div>
-        <div class="inline-row">
-          <p >Humidity:</p>
-          <p ><%= weatherData.humidity %>%</p>
-        </div>
-        <div class="inline-row">
-          <p >Windspeed:</p>
-          <p ><%= weatherData.windspeed %>km/h</p>
-        </div>
-        <div class="inline-row">
-          <p >Pressure:</p>
-          <p ><%= weatherData.pressure %>hPa</p>
-        </div>
-        <div class="inline-row">
-          <p >Description:</p>
-          <p ><%= weatherData.description %></p>
-        </div>
-        <div class="inline-row">
-          <p >Min Temp:</p>
-          <p ><%= weatherData.tempMin %>˚</p>
-        </div>
-        <div class="inline-row">
-          <p >Max Temp:</p>
-          <p ><%= weatherData.tempMax %>˚</p>
-        </div>
-        <div class="inline-row">
-          <p >Sunrise:</p>
-          <p ><%= weatherData.sunrise %></p>
-        </div>
-        <div class="inline-row">
-          <p >Sunset:</p>
-          <p ><%= weatherData.sunset %></p>
-        </div>
-      </div>
-    </div>
-
-    <% } %>
   </div>
-  <div class="bottom">
-    <footer><%- include('footer.ejs') -%></footer>
+
   </div>
-</div>
+
+</html>

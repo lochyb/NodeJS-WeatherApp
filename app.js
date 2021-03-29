@@ -26,11 +26,12 @@ app.post("/", (req, res) => {
   https.get(url, (response) => {
     response.on("data", (data) => {
       const weather = JSON.parse(data);
-
       if (weather.cod !== 200) {
         const error = "Invalid location, Please try again";
         res.render('index', {weatherData: 0, city: null, error: error });
       } else {
+        const sunriseTime = (new Date(weather.sys.sunrise * 1000).getHours() + ":" + new Date(weather.sys.sunrise * 1000).getMinutes())
+        const sunsetTime = (new Date(weather.sys.sunset * 1000).getHours() + ":" + new Date(weather.sys.sunset * 1000).getMinutes())
         const weatherData = {
           cod: weather.cod,
           date: new Date(weather.dt*1000),
@@ -41,8 +42,8 @@ app.post("/", (req, res) => {
           feelsLike: Math.round(weather.main.feels_like),
           tempMin: Math.round(weather.main.temp_min),
           tempMax: Math.round(weather.main.temp_max),
-          sunrise: new Date(weather.sys.sunrise * 1000),
-          sunset: new Date(weather.sys.sunset*1000),
+          sunrise: sunriseTime,
+          sunset: sunsetTime,
           timezone: weather.timezone,
           pressure: weather.main.pressure,
           windspeed: weather.wind.speed,
@@ -50,6 +51,7 @@ app.post("/", (req, res) => {
           humidity: weather.main.humidity,
         };
         console.log(weatherData)
+        console.log(sunriseTime)
         res.render("index", { weatherData: weatherData, city: cityName, error: null });
       }
     });

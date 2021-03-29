@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: content-box;
   font-family: "Nunito", sans-serif;
+
 }
 
 .container {
@@ -10,6 +11,7 @@ body {
   align-content: center;
   text-align: center;
   grid-template-rows: auto 1fr 0.2fr;
+  
 }
 
 .searchArea {
@@ -32,30 +34,33 @@ body {
   height: 2rem;
 }
 
-.searchInput {
-  padding: 1rem;
-
-}
-
 .dataArea {
   display: grid;
   grid-template-columns: minmax(20ch, 40ch);
-  justify-content: space-around;
-  margin: auto 3rem;
+  margin: 2rem auto;
+  max-width: max-content;
   background-color: rgba(235, 230, 230, 0.6);
   border-radius: 20px;
   padding: 1rem;
-  margin-top: 2rem;
+
 }
 
 .inline-row {
   position: relative;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px gray solid;
 }
 
 .searchRequest {
   justify-content: center;
+  margin-bottom: 1rem;
+
+}
+
+.searchInput{
+  margin-bottom: 1rem;
+
 }
 
 h2 {

@@ -1,0 +1,47 @@
+<div class="dataArea">
+    <div class="inline-row">
+      <h2 class="left">
+        <%= weatherData.location %>, <%= weatherData.country %>
+      </h2>
+      <h1 class="right"><%= weatherData.currentTemp %>˚</h1>
+    </div>
+
+    <div class="inline-row">
+      <p class="left"><%= weatherData.currentForecast%></p>
+    </div>
+
+    <div>
+      <div class="inline-row">
+        <p >Humidity:</p>
+        <p ><%= weatherData.humidity %>%</p>
+      </div>
+      <div class="inline-row">
+        <p >Windspeed:</p>
+        <p ><%= weatherData.windspeed %>km/h</p>
+      </div>
+      <div class="inline-row">
+        <p >Pressure:</p>
+        <p ><%= weatherData.pressure %>hPa</p>
+      </div>
+      <div class="inline-row">
+        <p >Description:</p>
+        <p ><%= weatherData.description %></p>
+      </div>
+      <div class="inline-row">
+        <p >Min Temp:</p>
+        <p ><%= weatherData.tempMin %>˚</p>
+      </div>
+      <div class="inline-row">
+        <p >Max Temp:</p>
+        <p ><%= weatherData.tempMax %>˚</p>
+      </div>
+      <div class="inline-row">
+        <p >Sunrise:</p>
+        <p ><%= weatherData.sunrise %></p>
+      </div>
+      <div class="inline-row">
+        <p >Sunset:</p>
+        <p ><%= weatherData.sunset %></p>
+      </div>
+    </div>
+  </div>
