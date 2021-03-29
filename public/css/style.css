@@ -1,37 +1,47 @@
+:root{
+  --primary: rgba(199,0,37,1);
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
   font-family: "Nunito", sans-serif;
+  background-color: rgba(141, 138, 138, 0.5);
+  text-align: center;
 
 }
+
 
 .container {
   display: grid;
   align-content: center;
-  text-align: center;
+  
   grid-template-rows: auto 1fr 0.2fr;
   
 }
 
 .searchArea {
-  background-color: gray;
+  background-color: var(--primary);
   z-index: 1;
   position: sticky;
   top: 0;
+  color:white;
 }
+
 
 .searchBar {
   padding: 8px 15px;
   background: rgba(235, 230, 230, 0.7);
-  border: 1px solid black;
+  border: 1px solid white;
   border-right: none;
 }
 .searchButton {
   background: rgba(235, 230, 230, 0.2);
-  border: 1px solid black;
+  border: 1px solid white;
   cursor: pointer;
   height: 2rem;
+  color: white;
 }
 
 .dataArea {
@@ -52,9 +62,11 @@ body {
   border-bottom: 1px gray solid;
 }
 
+
 .searchRequest {
   justify-content: center;
   margin-bottom: 1rem;
+  border-bottom: none;
 
 }
 
@@ -67,8 +79,27 @@ h2 {
   margin-bottom: 0;
 }
 footer {
-  background-color: gray;
+  background-color: var(--primary);
   position: fixed;
   bottom: 0px;
   width: 100%;
+  color:white;
+}
+a{
+  text-decoration: underline;
+  color: white;
+  transition: opacity 0.2s ease-in;
+  
+  
+}
+a:hover {
+  opacity: 0.75;
+}
+
+.home{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
 }

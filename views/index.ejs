@@ -9,6 +9,7 @@
     <%- include('search.ejs') -%>
       <div class="return">
         <% if (weatherData===null) { %>
+          <%- include('introCard') -%>
           <% } else if(error !==null){ %>
             <p>
               <%= error %>
