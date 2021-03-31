@@ -28,13 +28,17 @@ app.post("/", (req, res) => {
       const weather = JSON.parse(data);
       if (weather.cod !== 200) {
         const error = "Invalid location, Please try again";
-        res.render('index', {weatherData: 0, city: null, error: error });
+        res.render("index", { weatherData: 0, city: null, error: error });
       } else {
-        const sunriseTime = (new Date(weather.sys.sunrise * 1000).getHours() + ":" + new Date(weather.sys.sunrise * 1000).getMinutes())
-        const sunsetTime = (new Date(weather.sys.sunset * 1000).getHours() + ":" + new Date(weather.sys.sunset * 1000).getMinutes())
+        
+        const weatherIcon = weather.weather[0].icon;
+        const weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
+        const currentDate = new Date();
+        const sunrise =  new Date(weather.sys.sunrise * 1000).toLocaleTimeString().slice(0,4);
+
+        //Destructed API data
         const weatherData = {
           cod: weather.cod,
-          date: new Date(weather.dt*1000),
           location: weather.name,
           country: weather.sys.country,
           currentForecast: weather.weather[0].main,
@@ -42,22 +46,26 @@ app.post("/", (req, res) => {
           feelsLike: Math.round(weather.main.feels_like),
           tempMin: Math.round(weather.main.temp_min),
           tempMax: Math.round(weather.main.temp_max),
-          sunrise: sunriseTime,
-          sunset: sunsetTime,
           timezone: weather.timezone,
           pressure: weather.main.pressure,
           windspeed: weather.wind.speed,
           description: weather.weather[0].description,
           humidity: weather.main.humidity,
+          icon: weatherURL
         };
-        console.log(weatherData)
-        console.log(sunriseTime)
-        res.render("index", { weatherData: weatherData, city: cityName, error: null });
+
+        //Callback Log Functions
+        console.log(sunrise)
+
+        res.render("index", {
+          weatherData: weatherData,
+          city: cityName,
+          error: null,
+        });
       }
     });
   });
 });
-
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" >
     <%- include('search.ejs') -%>
       <div class="return">
         <% if (weatherData===null) { %>
@@ -17,11 +17,12 @@
             <% } else { %>
               <%- include('weatherCard.ejs') -%>
                 <% } %>
-      </div>
-      <div class="bottom">
+                <div class="bottom">
 
-        <%- include('footer.ejs') -%>
-      </div>
+                  <%- include('footer.ejs') -%>
+                </div>
+              </div>
+   
   </div>
 
   </div>
