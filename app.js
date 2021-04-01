@@ -2,9 +2,7 @@ const express = require("express");
 const https = require("https");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const { response } = require("express");
 const ejs = require("ejs");
-const { NONAME } = require("dns");
 dotenv.config();
 
 const app = express();
@@ -13,6 +11,8 @@ const key = process.env.APIkey;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+//app functions
 
 app.get("/", function (req, res) {
   res.render("index", { weatherData: null, city: null, error: null });
@@ -23,6 +23,8 @@ app.post("/", (req, res) => {
   const units = req.body.units;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=${units}`;
 
+  //Get API Data
+
   https.get(url, (response) => {
     response.on("data", (data) => {
       const weather = JSON.parse(data);
@@ -30,11 +32,15 @@ app.post("/", (req, res) => {
         const error = "Invalid location, Please try again";
         res.render("index", { weatherData: 0, city: null, error: error });
       } else {
-        
         const weatherIcon = weather.weather[0].icon;
-        const weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
-        const currentDate = new Date();
-        const sunrise =  new Date(weather.sys.sunrise * 1000).toLocaleTimeString().slice(0,4);
+        const weatherURL =
+          "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
+        
+        //Date based in search location
+        // const currentDate = new Date();
+        // const sunrise = new Date(weather.sys.sunrise * 1000)
+        //   .toLocaleTimeString()
+        //   .slice(0, 4);
 
         //Destructed API data
         const weatherData = {
@@ -51,12 +57,12 @@ app.post("/", (req, res) => {
           windspeed: weather.wind.speed,
           description: weather.weather[0].description,
           humidity: weather.main.humidity,
-          icon: weatherURL
+          icon: weatherURL,
         };
 
         //Callback Log Functions
-        console.log(sunrise)
 
+        //
         res.render("index", {
           weatherData: weatherData,
           city: cityName,

@@ -1,7 +1,6 @@
-:root{
-  --primary: rgba(199,0,37,1);
+:root {
+  --primary: rgba(199, 0, 37, 1);
 }
-
 
 body {
   margin: 0;
@@ -10,21 +9,43 @@ body {
   font-family: "Nunito", sans-serif;
   background-color: rgba(141, 138, 138, 0.5);
   text-align: center;
-
-
+  color: white;
 }
 
+ul {
+  list-style: none;
+}
 
+h1 {
+  margin-bottom: 0;
+}
 
+a {
+  text-decoration: underline;
+  transition: opacity 0.2s ease-in;
+  color: white;
+}
+a:hover {
+  opacity: 0.75;
+}
+
+/* Classes */
 
 .container {
   display: grid;
   align-content: center;
-  background-image: linear-gradient(to bottom, #c70025, #c70025, #d84b74, #d281af, #cab0cf, #d7d7d7);
+  background-image: linear-gradient(
+    to bottom,
+    #c70025,
+    #c70025,
+    #d84b74,
+    #d281af,
+    #cab0cf,
+    #d7d7d7
+  );
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: 'search' 'return' 'bottom' ;
+  grid-template-areas: "search" "return" "bottom";
   min-height: 100vh;
-  
 }
 
 .searchArea {
@@ -32,10 +53,24 @@ body {
   z-index: 1;
   position: sticky;
   top: 0;
-  color:white;
   grid-area: search;
 }
 
+.home {
+  text-decoration: none;
+}
+
+.inline-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px gray solid;
+}
+
+/* Search Area */
+
+.searchInput {
+  margin-bottom: 1rem;
+}
 
 .searchBar {
   padding: 8px 15px;
@@ -47,10 +82,16 @@ body {
   background: rgba(235, 230, 230, 0.2);
   border: 1px solid white;
   cursor: pointer;
-  height: 2rem;
-  color: white;
 }
-.return{
+.searchRequest {
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: none;
+}
+
+/* returned */
+.return {
+  color: black;
   margin: 0 0.4rem;
   grid-area: return;
 }
@@ -61,58 +102,18 @@ body {
   background-color: rgba(235, 230, 230, 0.95);
   border-radius: 20px;
   padding: 1rem;
-
+}
+img.right {
+  min-height: 100px;
+}
+.forecast {
+  margin: auto 0;
 }
 
-.inline-row {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px gray solid;
-}
+/* bottom */
 
-
-.searchRequest {
-  justify-content: center;
-  margin-bottom: 1rem;
-  border-bottom: none;
-
-}
-
-.searchInput{
-  margin-bottom: 1rem;
-
-}
-
-.bottom{
+.bottom {
   background-color: var(--primary);
-  /* position: fixed;
-  bottom: 0; */
   width: 100%;
-  color:white;
-  margin: 0;
   grid-area: bottom;
-}
-
-h2 {
-  margin-bottom: 0;
-}
-
-a{
-  text-decoration: underline;
-  color: white;
-  transition: opacity 0.2s ease-in;
-  
-  
-}
-a:hover {
-  opacity: 0.75;
-}
-
-.home{
-  text-decoration: none;
-}
-
-ul{
-  list-style: none;
 }

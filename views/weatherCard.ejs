@@ -1,14 +1,14 @@
 <div class="dataArea">
     <div class="inline-row">
-      <h2 class="left">
+      <h2>
         <%= weatherData.location %>, <%= weatherData.country %>
       </h2>
-      <h1 class="right"><%= weatherData.currentTemp %>˚</h1>
+      <h1><%= weatherData.currentTemp %>˚</h1>
     </div>
 
     <div class="inline-row">
-      <p class="left"><%= weatherData.currentForecast%></p>
-      <img class='right' src=<%= weatherData.icon %>>
+      <h3 class="forecast"><%= weatherData.currentForecast%></h3>
+      <img class="right" src=<%= weatherData.icon %>>
     </div>
 
     <div>
